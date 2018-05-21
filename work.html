@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
     <title>Tom Shea</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles.css">
-    <script src="/index.js" defer></script>
+    <script src="/work.js" defer></script>
   </head>
   <body>
     <!-- inlined critical styles -->
     <style>
+      :root {
+        --padding: 6em;
+      }
       body {
         margin: 0;
         padding: 0;
@@ -27,6 +30,7 @@
         position: -webkit-sticky;
         position: sticky;
         top: -1px;
+        z-index: 10;
       }
       nav ul {
         width: 100%;
@@ -46,28 +50,127 @@
       h1 {
         margin-bottom: 0;
       }
+      #masthead {
+        height: 19em;
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      #masthead h1, #masthead h3 {
+        z-index: 1;
+        position: relative;
+        text-align: center;
+        margin-top: 0;
+      }
+      #gears {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #primaryGearContainer {
+        width: 20em;
+        height: 20em;
+        z-index: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #primaryGears {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: calc(50% - 200px);
+        left: calc(50% - 200px);
+      }
       section {
-        padding-left: 6em;
-        padding-right: 6em;
+        padding-left: var(--padding);
+        padding-right: var(--padding);
         font-size: 20px;
         padding-bottom: 10em;
       }
       section p {
         max-width: 800px;
       }
+      .portfolio-items {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+        overflow: hidden;
+        padding-bottom: 1em;
+        margin-left: calc(-1 * var(--padding));
+      }
+      .portfolio-items section {
+        padding: 0;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        min-width: 35em;
+        align-items: center;
+        margin-left: 2em;
+      }
+      .portfolio-items .details {
+        box-sizing: border-box;
+      }
+      .portfolio-items section:nth-child(even) .details {
+        order: 2;
+        margin-left: 2em;
+      }
+      .portfolio-items video {
+      }
       @media only screen and (max-width: 500px) {
+        :root {
+          --padding: 1em;
+        }
         nav ul {
           flex-direction: column;
           align-items: flex-end;
         }
-        section {
-          padding-left: 1em;
-          padding-right: 1em;
+        header {
+          position: relative;
         }
       }
+      @media only screen and (max-width: 700px), (max-height: 700px) {
+        .portfolio-items {
+          flex-direction: column;
+        }
+        .portfolio-items section {
+          margin-left: 0;
+          flex-direction: column;
+          min-width: initial;
+        }
+        .portfolio-items section .details {
+          max-width: 80vw;
+          padding-left: 0.3em;
+          padding-right: 0.3em;
+          order: 0;
+          margin: 0;
+        }
+        .portfolio-items section:nth-child(even) .details {
+          order: 0;
+        }
+        .portfolio-items section:not(:first-child) {
+          border: 0;
+          margin: 0;
+          padding: 0;
+          margin-top: 1em;
+          border-top: 1px solid var(--darker-gray);
+          padding-top: 1em;
+        }
+
+      }
     </style>
+    <section id="masthead">
+      <canvas id="gears"></canvas>
+      <div id="primaryGearContainer">
+        <canvas id="primaryGears"></canvas>
+        <h1>Portfolio</h1>
+        <h3>selected work that I'm proud of</h1>
+      </div>
+    </section>
     <header>
-      <a href="/" class="me"></a>
+      <a href="/" class="me" aria-label="about"></a>
       <nav>
         <ul>
           <li><a href="/">About</a></li>
@@ -77,25 +180,104 @@
         </ul>
       </nav>
     </header>
-    <section id="intro">
-      <h1>Who I am</h1>
+    <section id="verve_ads">
+      <h1>Verve Ads</h1>
       <p>
-        I'm a programmer, engineer and hobbyist roboticist. I write clean, understandable and maintainable code,
-        but it's not enough to just write good code -- I'm great at communicating, whether it's one-on-one conversations or company-wide presentations.
-        If you're building something on the web, odds are I can help you out. <a href="/contact">Give me a call!</a>
+        At <a href="https://verve.com">Verve</a>, I build and prototype cutting-edge mobile ad experiences.
+        I've been involved with every part of our ad building process: meeting with clients, working
+        out the design, developing the ad itself and deciding what metrics to report on. I haven't
+        just built the ads, but designed and developed the core framework that powers our ad development and prototyped
+        nearly every new ad format we've introduced in the last 3 years.
       </p>
+      <p>
+        All of these ads were built in less than 2 weeks, thanks to work I led on tools and processes that allows Verve to offer industry-leading turnaround times.
+      </p>
+      <div class="portfolio-items">
+        <section id="coors-ncaa">
+          <div class="details">
+            <h2>Coors Light NCAA Game</h2>
+            <time datetime="2018">2018</time>
+            <p>Interactive basketball game to promote Coors Light during March Madness.</p>
+          </div>
+          <div class="phone">
+            <video autoplay muted playsinline loop src="./assets/coors_ncaa.mp4" class="verve_demo"></video>
+          </div>
+        </section>
+        <section id="black-mirror">
+          <div class="details">
+            <h2>Netflix Black Mirror</h2>
+            <time datetime="2018">2018</time>
+            <p>Keeping with the creepy theme of the show, an interstitial "holiday message" shows your current location
+            on Google StreetView to promote the new season of Black Mirror.</p>
+          </div>
+          <div class="phone">
+            <video autoplay muted playsinline loop src="./assets/netflix_blackmirror.mp4" class="verve_demo"></video>
+          </div>
+        </section>
+        <section id="fuze">
+          <div class="details">
+            <h2>Fuze Scroll Overlay + Map</h2>
+            <time datetime="2017">2017</time>
+            <p>Banner overlay reacts to user scrolling (even in-app, using Verve's proprietary SDK integration) and
+            brings them to an immersive map panel to find the nearest store.</p>
+          </div>
+          <div class="phone">
+            <video autoplay muted playsinline loop src="./assets/fuze_canopy.mp4" class="verve_demo"></video>
+          </div>
+        </section>
+        <section id="drumstick">
+          <div class="details">
+            <h2>Nestlé Drumstick</h2>
+            <time datetime="2016">2016</time>
+            <p>Match-3 game helps you figure out your favorite Drumstick flavor.</p>
+          </div>
+          <div class="phone">
+            <video autoplay muted playsinline loop src="./assets/nestle_drumstick.mp4" class="verve_demo"></video>
+          </div>
+        </section>
+      </div>
     </section>
-    <section id="skills">
-      <h1>What I do</h1>
+    <section id="verve_tools">
+      <h1>Verve Tools</h1>
       <p>
-        I'm an expert in:
+        The entire <a href="https://www.verve.com/foundry">Foundry</a> team at Verve uses the ad development process
+        and build tooling that I designed for fast design and development in a tight turnaround time. From ideation
+        to the finished product, every step of the process is influenced by a tool I built.
       </p>
-      <ul>
-        <li>HTML, CSS and Javascript, on the frontend and the backend</li>
-        <li>Cross-browser incompatabilities and implementation differences</li>
-        <li>Reverse engineering and debugging complex web apps</li>
-        <li>Game design and development, especially browser-based games (check out my <a href="/work#ludum-dare">Ludum Dare</a> entries!)</li>
-      </ul>
+      <div class="portfolio-items">
+        <section id="showcase">
+          <div class="details">
+            <h2>Creative Showcase</h2>
+            <time datetime="2017">2017</time>
+            <p>
+              The Creative Showcase is an internal tool built to help account managers, sales and designers find
+              existing examples of ads that we've built. It's entirely automated, pulling information from 
+              JIRA, Salesforce and internal services together to enable anyone to find whatever information they
+              need. The frontend is built in Vue, using IndexedDB for caching and searching through creative data.
+            </p>
+          </div>
+          <div class="imageContainer">
+            <img class="primary" src="./assets/creative_showcase.PNG"></img>
+          </div>
+        </section>
+        <section id="hooligan">
+          <div class="details">
+            <h2>Hooligan</h2>
+            <time datetime="2016">2016</time> - <time datetime="2018">2018</time>
+            <p>
+              The next generation of creative framework for the <a href="https://www.verve.com/foundry">Foundry</a>
+              team. Codenamed Hooligan because it's built on <a href="https://riot.js.org">Riot</a>, it replaces
+              the old and unwieldy AdJS with a better experience for both developers and users. At a ridiculous 86%
+              reduction in average ad filesize, ads render faster and take less bandwidth. Designed with reusable
+              components and modularity in mind, Hooligan eliminates repetitive boilerplate, allowing Foundry
+              developers to boast the fastest turnaround times in the industry.
+            </p>
+          </div>
+          <div class="imageContainer">
+            <img class="primary" src="./assets/hooligan_example.png"></img>
+          </div>
+        </section>
+      </div>
     </section>
     <section id="contact">
       <h1><a href="/contact">How can I help you?</a></h1>
