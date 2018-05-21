@@ -245,19 +245,22 @@
         to the finished product, every step of the process is influenced by a tool I built.
       </p>
       <div class="portfolio-items">
-        <section id="showcase">
+
+        <section id="sf2jira">
           <div class="details">
-            <h2>Creative Showcase</h2>
-            <time datetime="2017">2017</time>
+            <h2>sf2jira</h2>
+            <time datetime="2016">2015</time> - <time datetime="2018">2018</time>
             <p>
-              The Creative Showcase is an internal tool built to help account managers, sales and designers find
-              existing examples of ads that we've built. It's entirely automated, pulling information from 
-              JIRA, Salesforce and internal services together to enable anyone to find whatever information they
-              need. The frontend is built in Vue, using IndexedDB for caching and searching through creative data.
+              sf2jira is an internal tool that listens for Salesforce webhooks, then creates and assigns JIRA tickets. 
+              It was originally a barely-functional prototype before I started at Verve, but I took it over and rebuilt
+              it to modern standards, with test-driven development and functional components. It now uses an intelligent
+              Constraint Satisifaction Problem solver to balance developer and designer workloads and specialties between
+              different types of tasks. sf2jira is a core part of the Foundry infrastructure, building and assigning every
+              ticket that we work on.
             </p>
           </div>
           <div class="imageContainer">
-            <img class="primary" src="./assets/creative_showcase.PNG"></img>
+            <img class="primary" src="./assets/sf2jira.png"></img>
           </div>
         </section>
         <section id="hooligan">
@@ -275,6 +278,21 @@
           </div>
           <div class="imageContainer">
             <img class="primary" src="./assets/hooligan_example.png"></img>
+          </div>
+        </section>
+        <section id="showcase">
+          <div class="details">
+            <h2>Creative Showcase</h2>
+            <time datetime="2017">2017</time>
+            <p>
+              The Creative Showcase is an internal tool built to help account managers, sales and designers find
+              existing examples of ads that we've built. It's entirely automated, pulling information from 
+              JIRA, Salesforce and internal services together to enable anyone to find whatever information they
+              need. The frontend is built in Vue, using IndexedDB for caching and searching through creative data.
+            </p>
+          </div>
+          <div class="imageContainer">
+            <img class="primary" src="./assets/creative_showcase.PNG"></img>
           </div>
         </section>
       </div>
