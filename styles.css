@@ -73,6 +73,7 @@ header {
 
 .imageContainer {
   flex-shrink: 1;
+  padding: 1em;
 }
 img.primary {
   border-radius: 1em;
