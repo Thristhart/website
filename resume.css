@@ -80,7 +80,7 @@ h4 {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   #bio {
     padding-right: 0;
   }
