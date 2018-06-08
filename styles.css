@@ -100,3 +100,17 @@ footer {
   font-family: 'Roboto Condensed', sans-serif;
   padding-bottom: 1em;
 }
+
+blockquote {
+  background-color: #ccece7;
+  max-width: 800px;
+  border-left: 5px solid #25655a;
+  padding-left: 0.5em;
+}
+blockquote cite {
+  display: block;
+  padding-top: 0.3em;
+}
+blockquote cite:before {
+  content: "-";
+}

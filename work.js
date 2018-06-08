@@ -302,3 +302,20 @@ setCanvasToWindowSize();
 window.addEventListener("resize", setCanvasToWindowSize);
 
 requestAnimationFrame(animate);
+
+
+// adjust anchor offset to account for floating header
+function scrollToCurrentHash() {
+  let hash = window.location.hash;
+  let matchingAnchor = document.querySelector(hash);
+  if(matchingAnchor) {
+    let rect = matchingAnchor.getBoundingClientRect();
+    let headerRect = document.querySelector("header").getBoundingClientRect();
+    let targetOffset = window.pageYOffset + rect.top - headerRect.height;
+
+    window.scrollTo(window.pageXOffset, targetOffset);
+  }
+}
+
+window.addEventListener("load", scrollToCurrentHash);
+window.addEventListener('hashChange', scrollToCurrentHash);

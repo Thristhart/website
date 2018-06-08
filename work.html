@@ -112,9 +112,11 @@
       }
       .portfolio-items .details {
         box-sizing: border-box;
+        margin-right: 2em;
       }
       .portfolio-items section:nth-child(even) .details {
         order: 2;
+        margin-right: initial;
         margin-left: 2em;
       }
       .portfolio-items video {
@@ -292,6 +294,160 @@
           </div>
           <div class="imageContainer">
             <img class="primary" src="./assets/creative_showcase.PNG"></img>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section id="ludum-dare">
+      <h1>Ludum Dare</h1>
+      <blockquote>
+        Ludum Dare is one of the world's largest and longest running Game Jam events. Every 4 months, we challenge creators to make a game from scratch in a weekend.
+        <cite><a href="https://ldjam.com/">Ludum Dare website</a></cite>
+      </blockquote>
+      <p>
+        I've been participating in Ludum Dare competition and jam events since December 2010, when I was only just barely getting started with game development.
+        Every time I compete I try to do something I've never done before, and so LD has strongly shaped my approach to design and development. I've learned a lot
+        from Ludum Dare, even when my games aren't the greatest. That said, I also have quite a few games that I'm proud of, which I'll highlight here.
+      </p>
+      <p>For a complete list of my LD games, visit my author pages on the Ludum Dare sites:</p>
+      <ul>
+        <li><a href="http://ludumdare.com/compo/author/thristhart">Legacy Ludum Dare site</a></li>
+        <li><a href="https://ldjam.com/users/thristhart/games">New site</a></li>
+      </ul>
+      <div class="portfolio-items">
+        <section id="sneaky-link">
+          <div class="details">
+            <h2>SneakyLink</h2>
+            <ul class="facts">
+              <li>Ludum Dare 29 competition</li>
+              <li><time datetime="2014-04-25">April 25th, 2014</time></li>
+              <li>Theme: Beneath the Surface</li>
+              <li>#16 in Innovation out of 1491 entries</li>
+            </ul>
+            <p>
+              SneakyLink is a chat-based game, in which you are attempting to infiltrate a group of script kiddies, one of which is supposed to have stolen some important document.
+              It is built on a javascript windowing engine and psuedo-chat framework that I built in the 48-hour competition, which unfortunately didn't leave enough time to finish the writing.
+              Still, it shows off the possibilities of a game built on this fake-OS interface, which was later proven by games like <a href="http://emilyisaway.com/">Emily is Away</a> in 2015 and 
+              <a href="https://www.adultswim.com/games/pc-console/kingsway/">Kingsway</a> in 2017.
+            </p>
+            <ul class="links">
+              <li><a href="http://ludumdare.com/compo/ludum-dare-29/?action=preview&uid=3164">SneakyLink on Ludum Dare</a></li>
+              <li><a href="http://thristhart.github.io/ld48-29/">Play SneakyLink</a></li>
+              <li><a href="https://github.com/Thristhart/ld48-29">View source on github</a></li>
+            </ul>
+          </div>
+          <div class="imageContainer">
+            <img class="primary" src="./assets/sneakylink.png"></img>
+          </div>
+        </section>
+        <section id="cover">
+          <div class="details">
+            <h2>cover</h2>
+            <ul class="facts">
+              <li>Ludum Dare 31 competition</li>
+              <li><time datetime="2014-12-05">December 5th, 2014</time></li>
+              <li>Theme: Entire Game on One Screen</li>
+            </ul>
+            <p>
+              cover is an experiment in trying to put a lot of depth into an interface without ever opening any new windows or menus (thus keeping the "entire game on one screen" theme).
+              It's also an incremental game, back from when that genre wasn't as well known as it is now and Cookie Clicker was the go-to example. I wanted to make a more physical sort of
+              incremental game, where the resource you accumulate directly impacts the space you're playing in. The interface ended up a little confusing, but once you understand it it's pretty fluid.
+              This game also features the dumb jokes I like to put in my LD games, like the "armory" that generates stick arms for your snowmen.
+            </p>
+            <ul class="links">
+              <li><a href="http://ludumdare.com/compo/ludum-dare-31/?action=preview&uid=3164">cover on Ludum Dare</a></li>
+              <li><a href="http://tom.shea.at/ld48-31release/">Play cover</a></li>
+              <li><a href="https://github.com/thristhart/ld48-31">View source on github</a></li>
+            </ul>
+          </div>
+          <div class="imageContainer">
+            <video autoplay muted playsinline loop src="./assets/cover.mp4"><video>
+          </div>
+        </section>
+        <section id="whistle-command">
+          <div class="details">
+            <h2>WHISTLE COMMAND</h2>
+            <ul class="facts">
+              <li>Ludum Dare 32 competition</li>
+              <li><time datetime="2015-04-17">April 17th, 2015</time></li>
+              <li>Theme: An Unconventional Weapon</li>
+              <li><img src="./assets/gold.gif" /> #1 in Innovation out of 1353 entries</li>
+              <li><img src="./assets/gold.gif" /> #1 in Theme out of 1353 entries</li>
+              <li>#13 in Fun out of 1353 entries</li>
+            </ul>
+            <p>
+              WHISTLE COMMAND was my second idea for this competition, after wasting the first half of the 48 hours on <a href="http://ludumdare.com/compo/2015/05/11/whistle-command-post-mortem/">an idea that I ended up completely scrapping</a>.
+              Microphone input via <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia">getUserMedia</a> was only very recently available, and I had been itching to use it in something,
+              so I tried a simple prototype of controlling the position of a dot with the pitch from your microphone. I found it immediately engaging and built a little game around it with my remaining time.
+              I did not have very much time for the graphics, which is... apparent.
+            </p>
+            <p>It was the most positive feedback I've ever recieved in a Ludum Dare, winning first place in both the Innovation and Theme categories. It also led to a comment that I aspire to replicate with everything I build:</p>
+            <blockquote>
+              Oh my god this is such a great idea. I literally could not get past the rapid fire because I started laughing too much. I've never seen a mechanic convey laughter that well before.
+              <cite>foolmoron on Ludum Dare</cite>
+            </blockquote>
+            <ul class="links">
+              <li><a href="http://ludumdare.com/compo/ludum-dare-32/?action=preview&uid=3164">WHISTLE COMMMAND on Ludum Dare</a></li>
+              <li><a href="https://tom.shea.at/ldjam32/">Play WHISTLE COMMAND</a></li>
+              <li><a href="https://github.com/thristhart/ldjam32/">View source on github</a></li>
+            </ul>
+          </div>
+          <div class="imageContainer">
+            <video autoplay muted playsinline loop src="./assets/whistle.mp4"><video>
+          </div>
+        </section>
+        <section id="flow">
+          <div class="details">
+            <h2>Flow</h2>
+            <ul class="facts">
+              <li>Ludum Dare 34 jam</li>
+              <li><time datetime="2015-12-11">December 11th, 2015</time></li>
+              <li>Theme: Two Button Controls, Growing</li>
+              <li>#16 in Mood out of 1634 entries</li>
+              <li>#46 in Theme out of 1634 entries</li>
+            </ul>
+            <p>
+              Ludum Dare 34 was unusual in that the two highest-voted themes were tied, and so it was a dual-theme jam -- you could use either or both themes in your entry. I knew immediately that I wanted to use both,
+              and that I wanted to make something relaxing and chill. In the LD prior to this one (33), I started to partipate in the Jam rather than the Competition, which meant I had an extra day and could work with a team.
+              This meant a marked increase in the quality of my art assets, as I could lean on friends who are much better at it than me! I also made use of <a href="https://bbatv.bandcamp.com/">bbatv's wonderful song ", isn't the rain nice today?"</a>
+              which adds a lot of atmosphere to the game.
+            </p>
+            <ul class="links">
+              <li><a href="http://ludumdare.com/compo/ludum-dare-34/?action=preview&uid=3164">Flow on Ludum Dare</a></li>
+              <li><a href="http://corvus.club/flow/">Play Flow</a></li>
+              <li><a href="https://github.com/CorvusClub/ludum-dare-34">View source on github</a></li>
+            </ul>
+          </div>
+          <div class="imageContainer">
+            <video autoplay muted playsinline loop src="./assets/flow.mp4"><video>
+          </div>
+        </section>
+        <section id="thanks">
+          <div class="details">
+            <h2>thanks, I hate it!</h2>
+            <ul class="facts">
+              <li>Ludum Dare 40 jam</li>
+              <li><time datetime="2017-12-01">December 1st, 2017</time></li>
+              <li>Theme: The more you have, the worse it is</li>
+              <li>#41 in Theme out of 1847 entries</li>
+            </ul>
+            <p>
+              With thanks, I hate it!, I wanted to create something that surprised you with what it was willing to do. I was looking for that
+              moment of laughter when something unexpected happens. I also wanted to make something aggressively unpleasant, because that was how
+              I read the theme - the more you play this game, the worse it is. It's sort of an incremental game that actively punishes you for succeeding.
+            </p>
+            <p>
+              On a technical note, I used this as an opportunity to try out Web Components, which I found very helpful for this format. I used a polyfill
+              but otherwise focused on just HTML-standard web components, which I think were a great choice that allowed me to very rapidly prototype.
+            </p>
+            <ul class="links">
+              <li><a href="https://ldjam.com/events/ludum-dare/40/thanks-i-hate-it/">thanks, I hate it! on Ludum Dare</a></li>
+              <li><a href="https://tom.shea.at/ld40/">Play thanks, I hate it!</a></li>
+              <li><a href="https://github.com/CorvusClub/ld40">View source on github</a></li>
+            </ul>
+          </div>
+          <div class="imageContainer">
+            <video autoplay muted playsinline loop src="./assets/thanks.mp4"><video>
           </div>
         </section>
       </div>
