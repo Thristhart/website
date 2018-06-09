@@ -8,7 +8,7 @@ const cleanCSS = require('gulp-clean-css');
 
 function buildHTML() {
   return gulp.src("./src/**/*.html", {sourcemaps: true})
-    .pipe(replace(/src="(.*)"/g, 'src="https://static.tom.shea.at/$1"'))
+    .pipe(replace(/src="\.\/(.*)"/g, 'src="https://static.tom.shea.at/$1"'))
     .pipe(replace(/href="(.*)\.css"/g, 'href="https://static.tom.shea.at/$1.css"')) // replace <link>s
     .pipe(htmlmin({collapseWhitespace: true, minifyCSS: true}))
     .pipe(gulp.dest("./dist"), {sourcemaps: "./"});
