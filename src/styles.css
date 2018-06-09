@@ -23,17 +23,6 @@ header {
   background-color: white;
 }
 
-#gear {
-  width: 400px;
-  transition: transform 100ms linear;
-}
-#gearContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 :root {
   --lighter-gray: #F2F2F2;
   --darker-gray: #D9D9D9;
