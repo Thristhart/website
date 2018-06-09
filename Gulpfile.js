@@ -31,18 +31,12 @@ function buildCSS() {
     .pipe(gulp.dest("./dist", {sourcemaps: "./"}));
 }
 
-const child_process = require('child_process');
-function pushToGithub(done) {
-  const lastCommitMessage = child_process.execSync('git show -s --format=%B HEAD').toString();
-  child_process.exec(`cd dist && git add . && git commit -m "${lastCommitMessage}" && git push`, (err, stdout, stderr) => {
-    if(err && stdout.match(/nothing to commit/)) {
-      console.warn("nothing changed, not pushing to github");
-      return done();
-    }
-    console.log(stdout, stderr);
-    done(err)
-  });
+function copyAssets() {
+  return gulp.src("./src/assets/**/*")
+    .pipe(gulp.dest("./dist/assets"));
 }
+
+const child_process = require('child_process');
 
 function throwIfDirty(done) {
   child_process.exec(`git diff-index --quiet HEAD --`, (err, stdout, stderr) => {
@@ -58,9 +52,20 @@ function throwIfDirty(done) {
   });
 }
 
-function copyAssets() {
-  return gulp.src("./src/assets/**/*")
-    .pipe(gulp.dest("./dist/assets"));
+function pushToGithub(done) {
+  const lastCommitMessage = child_process.execSync('git show -s --format=%B HEAD').toString();
+  child_process.exec(`cd dist && git add . && git commit -m "${lastCommitMessage}" && git push`, (err, stdout, stderr) => {
+    if(err && stdout.match(/nothing to commit/)) {
+      console.warn("nothing changed, not pushing to github");
+      return done();
+    }
+    console.log(stdout, stderr);
+    done(err)
+  });
+}
+
+function pushHTMLToWebserver(done) {
+  child_process.exec(`scp -r dist/*.html tom@shea.at:/srv/http/tom.shea.at/`, done);
 }
 
 gulp.task(buildHTML);
@@ -70,3 +75,7 @@ gulp.task(copyAssets);
 gulp.task(throwIfDirty);
 gulp.task("build", gulp.parallel(buildHTML, buildJS, buildCSS, copyAssets));
 gulp.task(pushToGithub);
+gulp.task(pushHTMLToWebserver);
+
+gulp.task("deploy", gulp.series(pushToGithub, pushHTMLToWebserver));
+gulp.task("publish", gulp.series("build", "deploy"));
