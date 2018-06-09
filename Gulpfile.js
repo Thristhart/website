@@ -34,10 +34,34 @@ function buildCSS() {
 const child_process = require('child_process');
 function pushToGithub(done) {
   const lastCommitMessage = child_process.execSync('git show -s --format=%B HEAD').toString();
-  child_process.exec(`cd dist && git add . && git commit -m '${lastCommitMessage}'`, done);
+  child_process.exec(`cd dist && git add . && git commit -m "${lastCommitMessage}" && git push`, (err, stdout, stderr) => {
+    if(err && stdout.match(/nothing to commit/)) {
+      console.warn("nothing changed, not pushing to github");
+      return done();
+    }
+    console.log(stdout, stderr);
+    done(err)
+  });
+}
+
+function throwIfDirty(done) {
+  child_process.exec(`git diff-index --quiet HEAD --`, (err, stdout, stderr) => {
+    if(err) {
+      return done("Uncommited changes, refusing to proceed");
+    }
+    done();
+  });
+}
+
+function copyAssets() {
+  return gulp.src("./src/assets/**/*")
+    .pipe(gulp.dest("./dist/assets"));
 }
 
 gulp.task(buildHTML);
 gulp.task(buildJS);
 gulp.task(buildCSS);
+gulp.task(copyAssets);
+gulp.task(throwIfDirty);
+gulp.task("build", gulp.parallel(buildHTML, buildJS, buildCSS, copyAssets));
 gulp.task(pushToGithub);
