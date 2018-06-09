@@ -307,6 +307,9 @@ requestAnimationFrame(animate);
 // adjust anchor offset to account for floating header
 function scrollToCurrentHash() {
   let hash = window.location.hash;
+  if(!hash) {
+    return;
+  }
   let matchingAnchor = document.querySelector(hash);
   if(matchingAnchor) {
     let rect = matchingAnchor.getBoundingClientRect();

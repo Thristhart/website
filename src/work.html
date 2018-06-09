@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="style" onload="this.rel='stylesheet'" href="styles.css">
     <script src="work.js" defer></script>
   </head>
   <body>
@@ -120,6 +120,7 @@
         margin-left: 2em;
       }
       .portfolio-items video {
+        width: 100%;
       }
       @media only screen and (max-width: 500px) {
         :root {
@@ -136,6 +137,7 @@
       @media only screen and (max-width: 700px), (max-height: 700px) {
         .portfolio-items {
           flex-direction: column;
+          width: 100vw;
         }
         .portfolio-items section {
           margin-left: 0;
@@ -261,7 +263,7 @@
             </p>
           </div>
           <div class="imageContainer">
-            <img class="primary" src="./assets/sf2jira.png" alt="Salesforce opportunity is turned into a JIRA ticket"></img>
+            <img class="primary" data-src="./assets/sf2jira.png" alt="Salesforce opportunity is turned into a JIRA ticket"></img>
           </div>
         </section>
         <section id="hooligan">
@@ -278,7 +280,7 @@
             </p>
           </div>
           <div class="imageContainer">
-            <img class="primary" src="./assets/hooligan_example.png" alt="hooligan ads are built from semantic components to be very readable"></img>
+            <img class="primary" data-src="./assets/hooligan_example.png" alt="hooligan ads are built from semantic components to be very readable"></img>
           </div>
         </section>
         <section id="showcase">
@@ -293,7 +295,7 @@
             </p>
           </div>
           <div class="imageContainer">
-            <img class="primary" src="./assets/creative_showcase.PNG" alt="the Creative Showcase allows filtering by tags, and has preview images for each ad"></img>
+            <img class="primary" data-src="./assets/creative_showcase.PNG" alt="the Creative Showcase allows filtering by tags, and has preview images for each ad"></img>
           </div>
         </section>
       </div>
@@ -337,7 +339,7 @@
             </ul>
           </div>
           <div class="imageContainer">
-            <img class="primary" src="./assets/sneakylink.png" alt="sneakylink has a retro operating system interface, with a fake chat interface"></img>
+            <img class="primary" data-src="./assets/sneakylink.png" alt="sneakylink has a retro operating system interface, with a fake chat interface"></img>
           </div>
         </section>
         <section id="cover">
@@ -458,5 +460,15 @@
     <footer>
       &copy; 2018 Tom Shea
     </footer>
+    <script>
+      (function(w, d){
+        var b = d.getElementsByTagName('body')[0];
+        var s = d.createElement("script"); s.async = true;
+        var v = !("IntersectionObserver" in w) ? "8.7.1" : "10.5.2";
+        s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
+        window.lazyLoadOptions = {};
+        b.appendChild(s);
+      }(window, document));
+    </script>
   </body>
 </html>
