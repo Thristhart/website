@@ -49,7 +49,12 @@ function throwIfDirty(done) {
     if(err) {
       return done("Uncommited changes, refusing to proceed");
     }
-    done();
+    child_process.exec(`git ls-files --exclude-standard --others`, (err, stdout, stderr) => {
+      if(stdout) {
+        return done("Unstaged files, refusing to proceed");
+      }
+      done();
+    });
   });
 }
 
