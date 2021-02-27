@@ -19,15 +19,6 @@ h1 {
   padding-right: 16em;
 }
 
-#bio img {
-  width: 15em;
-  max-width: 40%;
-  transform: rotate(-4deg) translateY(-5em);
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 #resume {
   display: flex;
   flex-direction: row;
@@ -47,16 +38,16 @@ h1 {
 }
 
 .job {
-  border: 1px dashed #999;
-  border-radius: 2em;
+  border: 1px solid black;
+  border-radius: 0.5em;
   padding: 2em;
   margin-bottom: 1em;
   background: url('./pattern.jpg');
 }
 
 .project {
-  border: 1px dashed #999;
-  border-radius: 2em;
+  border: 1px solid black;
+  border-radius: 0.5em;
   padding: 2em;
   margin-bottom: 1em;
   background: url('./pattern.jpg');
