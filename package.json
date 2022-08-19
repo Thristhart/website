@@ -2,6 +2,10 @@
   "name": "website",
   "version": "1.0.0",
   "description": "tom.shea.at",
+  "scripts": {
+    "build": "gulp build",
+    "publish": "gulp publish"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Thristhart/website.git"
