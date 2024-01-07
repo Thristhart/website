@@ -65,7 +65,7 @@ function pushToGithub(done) {
 }
 
 function pushHTMLToWebserver(done) {
-  child_process.exec(`scp -r dist/*.html tom@shea.at:/srv/http/tom.shea.at/`, done);
+  child_process.exec(`scp -r dist/*.html tom@dirt.shea.at:/srv/web/tom.shea.at/website`, done);
 }
 
 gulp.task(buildHTML);
